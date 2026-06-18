@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پروپوزال تخصصی سئو، UX و توسعه برند - malekpourmie.net</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --primary:#1d4ed8;
+      --primary-2:#2563eb;
+      --accent:#0f766e;
+      --soft:#eff6ff;
+      --soft-2:#ecfeff;
+      --soft-3:#f8fafc;
+      --warn:#b45309;
+      --shadow:0 18px 50px rgba(15, 23, 42, 0.08);
+      --radius:22px;
+      --radius-sm:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,.08), transparent 30%),
+        radial-gradient(circle at left top, rgba(15,118,110,.08), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      font-family:Tahoma, Arial, sans-serif;
+      line-height:2;
+    }
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:32px 18px 60px;
+    }
+    .hero{
+      background:linear-gradient(135deg, #0f172a 0%, #1d4ed8 48%, #2563eb 100%);
+      color:#fff;
+      border-radius:28px;
+      padding:34px 28px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:auto -120px -120px auto;
+      width:280px;height:280px;
+      background:rgba(255,255,255,.08);
+      border-radius:50%;
+      filter:blur(2px);
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:20px auto auto -80px;
+      width:200px;height:200px;
+      background:rgba(255,255,255,.05);
+      border-radius:50%;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+      margin-bottom:16px;
+      backdrop-filter:blur(8px);
+    }
+    h1,h2,h3{line-height:1.4;margin:0}
+    h1{font-size:30px;margin-bottom:12px}
+    .hero p{max-width:920px;color:rgba(255,255,255,.9);margin:0}
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;
+      margin-top:22px;
+    }
+    .meta .item{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:14px 16px;
+    }
+    .meta .label{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:4px}
+    .meta .value{font-size:15px;font-weight:700}
+    .section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      margin-top:18px;
+      overflow:hidden;
+    }
+    .section-inner{padding:28px}
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:16px;
+      font-size:22px;
+    }
+    .section-title .bar{
+      width:8px;height:26px;border-radius:999px;background:linear-gradient(180deg,var(--primary),var(--accent));
+      flex:0 0 auto;
+    }
+    .lead{
+      color:var(--muted);
+      margin-top:0;
+    }
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .card{
+      background:var(--soft-3);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+    }
+    .card h3{font-size:17px;margin-bottom:8px}
+    .card p{margin:0;color:var(--muted)}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border-radius:999px;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .badge strong{color:var(--text)}
+    .note{
+      background:linear-gradient(180deg,#fff7ed,#fffbeb);
+      border:1px solid #fed7aa;
+      border-radius:18px;
+      padding:16px 18px;
+      color:#7c2d12;
+      margin-top:14px;
+    }
+    .highlight{
+      background:linear-gradient(180deg,#eff6ff,#f8fbff);
+      border:1px solid #bfdbfe;
+      border-radius:18px;
+      padding:16px 18px;
+    }
+    ul{
+      margin:12px 0 0;
+      padding:0 18px 0 0;
+    }
+    li{margin:8px 0}
+    .timeline{
+      display:grid;
+      gap:14px;
+    }
+    .phase{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:16px;
+      align-items:start;
+      background:var(--soft-3);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+    }
+    .phase .time{
+      background:var(--soft);
+      color:var(--primary);
+      border:1px solid #bfdbfe;
+      border-radius:14px;
+      padding:10px 12px;
+      text-align:center;
+      font-weight:700;
+    }
+    .phase h3{margin-bottom:8px}
+    .kpi{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0,1fr));
+      gap:14px;
+    }
+    .kpi .box{
+      background:linear-gradient(180deg,#ffffff,#f8fafc);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+    }
+    .kpi .num{font-size:24px;font-weight:800;color:var(--primary);margin-bottom:4px}
+    .kpi .txt{font-size:13px;color:var(--muted);line-height:1.8}
+    .mini-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .mini-table th,.mini-table td{
+      padding:14px 14px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+      text-align:right;
+    }
+    .mini-table th{
+      background:#f8fafc;
+      font-weight:700;
+      color:#0f172a;
+    }
+    .mini-table tr:last-child td{border-bottom:none}
+    .footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:8px 4px;
+    }
+    .split-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:18px;
+      margin-bottom:16px;
+    }
+    .split-title p{margin:0;color:var(--muted)}
+    .accent{
+      color:var(--accent);
+      font-weight:700;
+    }
+    @media (max-width: 980px){
+      .meta,.grid-2,.grid-3,.grid-4,.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .phase{grid-template-columns:1fr}
+      .split-title{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width: 640px){
+      h1{font-size:24px}
+      .section-inner{padding:20px}
+      .meta,.grid-2,.grid-3,.grid-4,.kpi{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="eyebrow">پروپوزال تخصصی سئو، UX، GEO و توسعه برند</div>
+      <h1>بررسی و برنامه‌ریزی رشد وب‌سایت malekpourmie.net</h1>
+      <p>
+        این سند با هدف ارائه یک نقشه راه اجرایی، دقیق و قابل ارائه به کارفرما تهیه شده است تا علاوه بر رفع ایرادهای
+        فنی و ساختاری وب‌سایت، مسیر رشد ارگانیک، افزایش اعتبار برند، بهبود دسترسی کاربران ایرانی و توسعه لیدهای
+        باکیفیت نیز به شکل حرفه‌ای تعریف شود.
+      </p>
+
+      <div class="meta">
+        <div class="item">
+          <div class="label">حوزه فعالیت</div>
+          <div class="value">مهاجرت بین‌المللی</div>
+        </div>
+        <div class="item">
+          <div class="label">بستر</div>
+          <div class="value">وردپرس + Enfold</div>
+        </div>
+        <div class="item">
+          <div class="label">زبان‌ها</div>
+          <div class="value">فارسی، عربی، انگلیسی</div>
+        </div>
+        <div class="item">
+          <div class="label">اولویت کلیدی</div>
+          <div class="value">دسترسی + ساختار + تبدیل</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="split-title">
+          <div>
+            <h2 class="section-title"><span class="bar"></span>خلاصه مدیریتی</h2>
+          </div>
+        </div>
+
+        <p class="lead">
+          وب‌سایت <strong>malekpourmie.net</strong> از نظر دامنه خدمات، تعداد صفحات، تنوع زبان، سابقه برند و ظرفیت
+          جذب کاربر، یک دارایی دیجیتال بسیار ارزشمند محسوب می‌شود. این وب‌سایت در برخی کلمات کلیدی مهم مانند
+          <strong>مهاجرت به آلمان</strong>، <strong>مهاجرت به اتریش</strong> و سایر عبارات مرتبط، جایگاه‌های بسیار خوبی
+          کسب کرده است و همین موضوع نشان می‌دهد که زیرساخت اصلی رشد در آن وجود دارد.
+        </p>
+
+        <p class="lead">
+          با این حال، چند مانع اصلی باعث شده پتانسیل کامل سایت بالفعل نشود: شلوغی ساختار صفحه اول و هدر، دسترسی
+          سخت به صفحات مهم، ضعف در برخی لینک‌دهی‌های داخلی، وجود خطاهای 404 و ریدایرکت لوپ، ضعف در بخشی از صفحات
+          چندزبانه، و از همه مهم‌تر <span class="accent">عدم دسترسی پایدار کاربران داخل ایران به سایت به‌دلیل محدودیت‌های
+          ناشی از Cloudflare و مسیرهای دسترسی</span>.
+        </p>
+
+        <div class="highlight">
+          <strong>جمع‌بندی کلیدی:</strong>
+          موفقیت این پروژه فقط با سئو محتوا به‌دست نمی‌آید؛ بلکه نیازمند یک بازطراحی جامع شامل بهینه‌سازی
+          معماری سایت، UX، سئو تکنیکال، دسترس‌پذیری از ایران، چندزبانه‌سازی اصولی، ساختار لینک‌دهی، برندینگ
+          و توسعه لید است.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>تحلیل وضعیت فعلی سایت</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>نقاط قوت</h3>
+            <ul>
+              <li>اعتبار برند و شناخته‌شدگی در حوزه مهاجرت</li>
+              <li>حجم بالای صفحات مقالات و پوشش گسترده کشورها و روش‌های مهاجرت</li>
+              <li>رتبه‌های خوب در کلمات کلیدی مهم و رقابتی</li>
+              <li>وجود خدمات متنوع: سرمایه‌گذاری، آموزش زبان، ویزای هنرمندان، ویزای توریستی</li>
+              <li>وجود دفاتر متعدد خارج از ایران</li>
+              <li>وجود مشاوره رایگان با خود مدیرعامل، که یک مزیت تبدیل بسیار مهم است</li>
+              <li>وجود بودجه برای Google Ads و رپورتاژ</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>چالش‌های اصلی</h3>
+            <ul>
+              <li>ساختار شلوغ، فشرده و کم‌خوانا در هدر و صفحه اول</li>
+              <li>دسترسی سخت کاربران به صفحات مهم و مسیرهای تبدیل</li>
+              <li>وجود خطاهای فنی مانند 404، صفحات یتیم و ریدایرکت لوپ</li>
+              <li>ضعف لینک‌دهی داخلی در بخشی از مقالات و صفحات</li>
+              <li>طراحی نامناسب برخی صفحات خدماتی و محتوایی</li>
+              <li>نیاز به بهینه‌سازی حرفه‌ای صفحات عربی و انگلیسی</li>
+              <li>مشکل جدی دسترسی کاربران ایرانی و افت ناشی از قطعی اینترنت</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="badge-row">
+          <span class="badge"><strong>ابزارها:</strong> Search Console</span>
+          <span class="badge"><strong>ابزارها:</strong> Screaming Frog</span>
+          <span class="badge"><strong>CDN:</strong> Cloudflare</span>
+          <span class="badge"><strong>پلتفرم:</strong> WordPress</span>
+          <span class="badge"><strong>قالب:</strong> Enfold</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>مشکلات شناسایی‌شده و راهکار پیشنهادی</h2>
+
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th style="width:24%">موضوع</th>
+              <th style="width:38%">وضعیت فعلی</th>
+              <th style="width:38%">راهکار پیشنهادی</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ساختار صفحه اول و هدر</td>
+              <td>شلوغ، فشرده و دارای مسیرهای دسترسی پیچیده</td>
+              <td>بازطراحی کامل هدر، ساده‌سازی مسیر کاربر، پیاده‌سازی مگا منو و اولویت‌بندی صفحات مهم</td>
+            </tr>
+            <tr>
+              <td>معماری اطلاعات</td>
+              <td>چندلایه، سنگین و در برخی بخش‌ها غیرشفاف</td>
+              <td>طراحی مجدد ساختار دسته‌بندی و تبدیل آن به یک نقشه سایت انسانی و قابل اسکن برای گوگل</td>
+            </tr>
+            <tr>
+              <td>لینک‌دهی داخلی</td>
+              <td>ضعیف، گاه نادرست و همراه با خطاهای 404</td>
+              <td>بازبینی کامل لینک‌ها، اصلاح انکرتکست‌ها، حذف لینک‌های شکسته و ایجاد شبکه لینک‌سازی داخلی هدفمند</td>
+            </tr>
+            <tr>
+              <td>صفحات یتیم و ریدایرکت لوپ</td>
+              <td>در مانیتورینگ سئو مشاهده شده‌اند</td>
+              <td>رفع ساختاری، تجمیع URLهای مشابه، اصلاح ریدایرکت‌ها و تعیین مسیر قطعی برای هر صفحه</td>
+            </tr>
+            <tr>
+              <td>صفحات خدماتی</td>
+              <td>در برخی موارد با ساختار بلاگ یا طراحی نامناسب ساخته شده‌اند</td>
+              <td>بازنویسی صفحات خدمات با الگوی Landing Page و تمرکز بر تبدیل کاربر به لید</td>
+            </tr>
+            <tr>
+              <td>هدینگ‌ها</td>
+              <td>ساختار H1 تا H6 در همه صفحات یکدست و اصولی نیست</td>
+              <td>استانداردسازی Heading Hierarchy و تعریف معماری محتوایی مناسب برای هر نوع صفحه</td>
+            </tr>
+            <tr>
+              <td>ALT و Anchor Text</td>
+              <td>بهینه‌سازی نشده یا ناقص</td>
+              <td>تعریف الگوی سئو معنایی برای تصاویر، لینک‌ها و انکرتکست‌ها</td>
+            </tr>
+            <tr>
+              <td>نسخه‌های عربی و انگلیسی</td>
+              <td>از نظر محتوا، UX و ساختار نیازمند بازطراحی جدی هستند</td>
+              <td>بازنویسی، بومی‌سازی، استانداردسازی صفحات و تدوین استراتژی سئوی چندزبانه</td>
+            </tr>
+            <tr>
+              <td>دسترسی کاربران ایرانی</td>
+              <td>محدود و ناپایدار به‌دلیل مسیرهای دسترسی فعلی</td>
+              <td><strong>پیاده‌سازی GeoDNS / Multi-Region Routing</strong> برای دسترسی پایدار از ایران بدون نیاز به VPN</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>نکته بسیار مهم:</strong> در این پروژه، رفع مشکل دسترسی کاربران ایرانی فقط یک اقدام فنی نیست؛ بلکه یک
+          اقدام مستقیم درآمدی است. هر کاربری که به‌دلیل عدم دسترسی پایدار سایت را ترک می‌کند، در واقع یک فرصت
+          مشاوره و یک لید بالقوه از دست می‌رود.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>اولویت‌های استراتژیک پروژه</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>۱) دسترسی و زیرساخت</h3>
+            <p>بهینه‌سازی مسیر دسترسی، حل مسئله کاربران ایرانی، و ایجاد پایداری در زمان قطعی‌ها و اختلالات شبکه.</p>
+          </div>
+          <div class="card">
+            <h3>۲) ساختار و تجربه کاربری</h3>
+            <p>بازطراحی هدر، منو، مسیرهای تبدیل، صفحات خدمات و مسیر رسیدن به شماره تماس و فرم مشاوره.</p>
+          </div>
+          <div class="card">
+            <h3>۳) سئو و اعتبار برند</h3>
+            <p>تقویت لینک‌سازی داخلی، رپورتاژ، Digital PR، محتوای حرفه‌ای و هماهنگی با Google Ads.</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>تمرکز ویژه روی تبدیل</h3>
+            <p>
+              با توجه به اهمیت بالای <strong>تماس تلفنی</strong> و <strong>فرم مشاوره</strong> برای این کسب‌وکار، باید
+              صفحه‌های اصلی به‌گونه‌ای طراحی شوند که کاربر در کمترین زمان به اقدام نهایی برسد. برای این هدف، مسیر
+              CTAها، پیام‌های اعتمادساز، معرفی مشاوره رایگان با مدیرعامل و دسترسی سریع به شماره تماس باید در اولویت
+              باشد.
+            </p>
+          </div>
+          <div class="card">
+            <h3>چندزبانه‌سازی حرفه‌ای</h3>
+            <p>
+              سایت سه‌زبانه است، اما صفحات عربی و انگلیسی باید از نو و به‌صورت اصولی بازطراحی شوند. این بازطراحی
+              فقط ترجمه نیست؛ بلکه شامل بومی‌سازی، ساختاردهی، اصلاح معماری محتوا و تعریف Intent مناسب برای هر زبان
+              می‌شود.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>استراتژی پیشنهادی سئو و رشد</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>سئو تکنیکال و ساختاری</h3>
+            <ul>
+              <li>اصلاح کامل معماری URLها و مسیرهای دسترسی</li>
+              <li>حذف صفحات یتیم و رفع 404</li>
+              <li>بررسی و اصلاح ریدایرکت لوپ</li>
+              <li>بهینه‌سازی Crawl Budget</li>
+              <li>بازبینی Schemaها و داده‌های ساختاریافته</li>
+              <li>استانداردسازی هدینگ‌ها و متاتگ‌ها</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>سئو محتوایی و معنایی</h3>
+            <ul>
+              <li>تقویت صفحه‌های پیلار و کلاستر</li>
+              <li>تدوین خوشه‌های محتوایی برای هر کشور و هر مسیر مهاجرت</li>
+              <li>بهبود Search Intent در مقالات</li>
+              <li>بهینه‌سازی برای GEO و پاسخ‌گیری در موتورهای هوش مصنوعی</li>
+              <li>بازنویسی صفحه‌های مهم برای E-E-A-T</li>
+              <li>ساخت FAQهای هدفمند برای هر خدمت</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>لینک‌سازی داخلی و معماری محتوا</h3>
+            <p>
+              با توجه به حجم بالای مقالات، باید ساختار لینک‌دهی داخلی به‌صورت مهندسی‌شده طراحی شود تا هم صفحات مهم
+              اعتبار بیشتری دریافت کنند و هم کاربر در یک مسیر منطقی از مقاله به خدمت و از خدمت به فرم مشاوره هدایت شود.
+            </p>
+          </div>
+          <div class="card">
+            <h3>لینک‌سازی خارجی و برندینگ</h3>
+            <p>
+              وجود مجموعه‌ای از وب‌سایت‌های مرتبط یک ظرفیت بزرگ برای انتقال اعتبار به سایت اصلی است. در کنار آن،
+              انتشار رپورتاژ در رسانه‌های معتبر، برندینگ در فضای فارسی و تقویت سیگنال‌های اعتماد برای حوزه مهاجرت،
+              نقش مهمی در رشد پایدار سایت دارد.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>Google Ads در کنار سئو</h3>
+            <p>
+              با توجه به جایگاه فعلی برند و وجود بودجه تبلیغاتی، اجرای کمپین‌های Google Ads می‌تواند هم به جذب سریع
+              لید کمک کند و هم داده‌های رفتاری ارزشمندی برای بهبود سئو، صفحات فرود و پیام‌های تبلیغاتی ارائه دهد.
+            </p>
+          </div>
+          <div class="card">
+            <h3>تولید محتوا و آموزش</h3>
+            <p>
+              این برند در یوتیوب آموزش‌های حرفه‌ای دارد و در اینستاگرام و یوتیوب وبینار برگزار می‌کند. بنابراین
+              پیشنهاد می‌شود تقویم محتوایی سایت با این فعالیت‌ها هماهنگ شود تا همه کانال‌ها یک پیام واحد و یک
+              هویت دیجیتال منسجم بسازند.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>برنامه اجرایی پیشنهادی در ۵ ماه</h2>
+
+        <div class="timeline">
+          <div class="phase">
+            <div class="time">ماه ۱</div>
+            <div>
+              <h3>تحلیل، عیب‌یابی و اولویت‌بندی</h3>
+              <p>
+                بررسی کامل Search Console و Screaming Frog، استخراج خطاهای فنی، تعیین صفحات کلیدی، شناسایی صفحات یتیم،
+                لینک‌های خراب، ریدایرکت‌های مسئله‌دار و ترسیم نقشه اقدام. در همین مرحله، ساختار دسترسی کاربران ایرانی
+                و وضعیت فعلی چندزبانه‌ها به‌صورت دقیق تحلیل می‌شود.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="time">ماه ۲</div>
+            <div>
+              <h3>بازطراحی ساختار سایت و UX</h3>
+              <p>
+                اصلاح هدر و منو، تبدیل آن به مگا منوی منظم، ساده‌سازی دسترسی به صفحات خدمات، بهینه‌سازی صفحه اول،
+                طراحی مجدد CTAها، و ایجاد مسیر مشخص از ورود کاربر تا ثبت درخواست مشاوره یا تماس تلفنی.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="time">ماه ۳</div>
+            <div>
+              <h3>بازسازی صفحات خدمات و چندزبانه</h3>
+              <p>
+                بازنویسی صفحات مهم خدماتی با ساختار Landing Page، اصلاح صفحات عربی و انگلیسی، تقویت E-E-A-T، بهبود
+                هدینگ‌ها، متاتگ‌ها، ALTها و لینک‌دهی داخلی، و تولید ساختار محتوایی مناسب برای هر زبان.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="time">ماه ۴</div>
+            <div>
+              <h3>گسترش اعتبار و برندینگ</h3>
+              <p>
+                آغاز کمپین رپورتاژ، تقویت بک‌لینک‌های موضوعی از وب‌سایت‌های هم‌خانواده، پیاده‌سازی Digital PR، و
+                هماهنگی محتوای سایت با انتشارهای یوتیوب و اینستاگرام برای افزایش سیگنال‌های اعتماد و برند.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="time">ماه ۵</div>
+            <div>
+              <h3>مقیاس‌پذیری و رشد</h3>
+              <p>
+                بهینه‌سازی مستمر بر اساس داده‌ها، اجرای Google Ads بر روی صفحات فرود منتخب، بهبود CTR، افزایش نرخ
+                تبدیل، توسعه کلاسترهای جدید و تثبیت نتایج به‌دست‌آمده در رتبه‌های اصلی.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>شاخص‌های کلیدی موفقیت (KPI)</h2>
+
+        <div class="kpi">
+          <div class="box">
+            <div class="num">↑</div>
+            <div class="txt">افزایش دسترسی کاربران ایرانی و کاهش خروج ناشی از محدودیت اتصال</div>
+          </div>
+          <div class="box">
+            <div class="num">↑</div>
+            <div class="txt">رشد ترافیک ارگانیک در صفحات کشورها، خدمات و مقالات پیلار</div>
+          </div>
+          <div class="box">
+            <div class="num">↑</div>
+            <div class="txt">افزایش CTR و بهبود نرخ کلیک در نتایج جستجو</div>
+          </div>
+          <div class="box">
+            <div class="num">↑</div>
+            <div class="txt">افزایش تماس تلفنی و ارسال فرم مشاوره</div>
+          </div>
+          <div class="box">
+            <div class="num">↑</div>
+            <div class="txt">رشد اعتبار برند و تثبیت جایگاه در بازار مهاجرت</div>
+          </div>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>پیش‌بینی رشد:</strong> با اجرای کامل این برنامه، در بازه‌ای حدود ۵ ماهه می‌توان انتظار رشد محسوس
+          در ترافیک، کیفیت لید، نرخ تبدیل، رضایت کاربر و ثبات رتبه‌ها را داشت. در این پروژه، به‌ویژه رفع مشکل دسترسی
+          از ایران و بازطراحی ساختار سایت، اثر مستقیم و فوری روی عملکرد تجاری خواهند داشت.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="bar"></span>جمع‌بندی نهایی</h2>
+        <p class="lead">
+          وب‌سایت malekpourmie.net از نظر اعتبار، گستردگی خدمات و ظرفیت جذب مخاطب، یک برند قدرتمند در حوزه مهاجرت
+          است؛ اما برای تبدیل این ظرفیت به رشد پایدار، لازم است سه موضوع به‌صورت هم‌زمان و هماهنگ حل شوند:
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>۱) رفع موانع دسترسی</h3>
+            <p>حل مشکل کاربران ایرانی با GeoDNS / Multi-Region Routing و کاهش وابستگی به شرایط متغیر شبکه.</p>
+          </div>
+          <div class="card">
+            <h3>۲) بازآفرینی ساختار سایت</h3>
+            <p>اصلاح هدر، منو، معماری اطلاعات، لینک‌دهی داخلی و صفحات خدمات برای افزایش UX و تبدیل.</p>
+          </div>
+          <div class="card">
+            <h3>۳) توسعه اعتبار و لید</h3>
+            <p>ترکیب سئو، محتوا، رپورتاژ، Google Ads و برندینگ چندکاناله برای رشد قابل اندازه‌گیری.</p>
+          </div>
+        </div>
+
+        <p class="lead" style="margin-top:16px;">
+          نتیجه این رویکرد، فقط بهبود رتبه در گوگل نیست؛ بلکه ساخت یک زیرساخت پایدار برای جذب مخاطب، حفظ اعتماد،
+          افزایش تماس‌ها، و تقویت جایگاه برند در فضای مهاجرت فارسی خواهد بود.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+
+    </div>
+  </div>
+</body>
+</html>
